@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../api/api.dart';
+import '../services/api_services.dart';
 import '../models/joke.dart';
 
 class JokesByTypeScreen extends StatelessWidget {
