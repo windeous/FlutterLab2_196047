@@ -9,10 +9,20 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Joke Categories'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.shuffle, size: 28),
+            tooltip: 'Get a Random Joke',
+            onPressed: () async {
+              final randomJoke = await ApiService.getRandomJoke();
+              Navigator.pushNamed(context, '/randomJoke',
+                  arguments: randomJoke);
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [
-          // Info Box at the Top
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(16),
@@ -22,7 +32,7 @@ class HomeScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(12),
             ),
             child: const Text(
-              'Select a category to explore jokes. Tap the button below to get a random joke!',
+              'Select a category to explore jokes. Tap the shuffle icon in the top right to get a random joke!',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,
@@ -31,7 +41,6 @@ class HomeScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          // Expanded FutureBuilder for Categories
           Expanded(
             child: FutureBuilder<List<String>>(
               future: ApiService.getJokeTypes(),
@@ -77,33 +86,6 @@ class HomeScreen extends StatelessWidget {
                   );
                 }
               },
-            ),
-          ),
-          // Random Joke Button at Bottom Left
-          Padding(
-            padding: const EdgeInsets.all(16),
-            child: Align(
-              alignment: Alignment.bottomLeft,
-              child: SizedBox(
-                width: 80,
-                height: 80,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.orange,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    padding: const EdgeInsets.all(12),
-                  ),
-                  onPressed: () async {
-                    final randomJoke = await ApiService.getRandomJoke();
-                    Navigator.pushNamed(context, '/randomJoke',
-                        arguments: randomJoke);
-                  },
-                  child:
-                      const Icon(Icons.shuffle, size: 36, color: Colors.white),
-                ),
-              ),
             ),
           ),
         ],

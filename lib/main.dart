@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'views/home.dart';
-import 'views/jokeTypes.dart';
-import 'views/randomJoke.dart';
-import 'models/jokeModel.dart';
+import 'views/joke_types.dart';
+import 'views/random_joke.dart';
+import 'models/joke.dart';
 
 void main() => runApp(const MyApp());
 

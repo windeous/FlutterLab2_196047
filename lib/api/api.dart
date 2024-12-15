@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import '../models/jokeModel.dart';
+import '../models/joke.dart';
 
 class ApiService {
   static const String _baseUrl = 'https://official-joke-api.appspot.com';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../api/api.dart';
-import '../models/jokeModel.dart';
+import '../models/joke.dart';
 
 class JokesByTypeScreen extends StatelessWidget {
   final String jokeType;
@@ -61,7 +61,6 @@ class JokesByTypeScreen extends StatelessWidget {
     );
   }
 
-  /// Builds a fancy title with a more impactful style
   Widget _buildFancyTitle(String jokeType) {
     return Text(
       'Jokes: $jokeType',

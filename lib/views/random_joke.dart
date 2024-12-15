@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../models/jokeModel.dart';
+import '../models/joke.dart';
 
 class RandomJokeScreen extends StatelessWidget {
   final Joke joke;
@@ -31,16 +31,16 @@ class RandomJokeScreen extends StatelessWidget {
                 end: Alignment.bottomRight,
               ),
               borderRadius: BorderRadius.circular(16),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 8,
-                  offset: const Offset(2, 4),
+                  offset: Offset(2, 4),
                 ),
               ],
             ),
             child: Container(
-              margin: const EdgeInsets.all(4), // Margin to show gradient border
+              margin: const EdgeInsets.all(4),
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
